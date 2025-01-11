@@ -3,16 +3,16 @@
 
 int* HashTable::CreatePearsonTable() 
 {
-    int* table = new int[PEARSON_TABLE_SIZE];
-    for (int i = 0; i < PEARSON_TABLE_SIZE; ++i)
+    int* table = new int[PearsonTableSize];
+    for (int i = 0; i < PearsonTableSize; ++i)
     {
         table[i] = i;
     }
 
     std::srand(std::time(0));
-    for (int i = 0; i < PEARSON_TABLE_SIZE; ++i)
+    for (int i = 0; i < PearsonTableSize; ++i)
     {
-        int j = std::rand() % PEARSON_TABLE_SIZE;
+        int j = std::rand() % PearsonTableSize;
         std::swap(table[i], table[j]);
     }
 
@@ -24,7 +24,7 @@ int HashTable::Hash(const std::string& key)
     int h = 0;
     for (char c : key) 
     {
-        h = _pearsonTable[(h + c) % PEARSON_TABLE_SIZE];
+        h = _pearsonTable[(h + c) % PearsonTableSize];
     }
 
     return h % _capacity;

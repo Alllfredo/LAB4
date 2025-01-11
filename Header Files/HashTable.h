@@ -12,10 +12,10 @@ class HashTable
 private:
     // TODO: RSDN
     //! \brief Константа для начальной ёмкости хеш-таблицы (по умолчанию 8).
-    static const int DEFAULT_CAPACITY = 8;
+    static const int DefaultCapacity = 8;
 
 	//! \brief Константа для размера таблицы Пирсона
-    static const int PEARSON_TABLE_SIZE = 256;
+    static const int PearsonTableSize = 256;
 
     //! \brief Текущая ёмкость хеш-таблицы.
     int _capacity;
@@ -46,7 +46,7 @@ private:
 public:
     //! \brief Конструктор хеш-таблицы
     //! \param cap Ёмкость хеш-таблицы
-    HashTable(int cap = DEFAULT_CAPACITY);
+    HashTable(int cap = DefaultCapacity);
 
     //! \brief Деструктор хеш-таблицы
     ~HashTable();
