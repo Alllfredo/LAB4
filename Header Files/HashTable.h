@@ -1,28 +1,15 @@
 #pragma once
+#include "../Header Files/HashTableItem.h"
 #include <string>
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <iostream>
 
 //! \brief Класс хеш-таблицы для хранения данных
 class HashTable 
 {
 private:
-    //! \brief Структура для хранения элементов в хеш-таблице
-    struct HashTableItem 
-    {
-        std::string key; //!< Ключ элемента
-        std::string value; //!< Значение элемента
-        HashTableItem* next; //!< Указатель на следующий элемент
-
-        //! \brief Конструктор элемента хеш-таблицы
-        //! \param k Ключ
-        //! \param v Значение
-        //! \param n Указатель на следующий элемент
-        HashTableItem(const std::string& k, const std::string& v, HashTableItem* n = nullptr)
-            : key(k), value(v), next(n) {}
-    };
-
     //! \brief Константа для начальной ёмкости хеш-таблицы (по умолчанию 8).
     static const int DEFAULT_CAPACITY = 8;
 
@@ -63,6 +50,10 @@ public:
     //! \brief Получить ёмкость хеш-таблицы
     //! \return Ёмкость хеш-таблицы
     int GetCapacity() const { return _capacity; }
+
+    //! \brief Получить хеш-таблиц
+    //! \return Массив указателей
+    HashTableItem** GetTable() const { return _table; }
 
     //! \brief Добавить пару ключ-значение в хеш-таблицу
     //! \param key Ключ

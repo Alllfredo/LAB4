@@ -4,12 +4,14 @@
 int* HashTable::ÑreatePearsonTable() 
 {
     int* table = new int[256];
-    for (int i = 0; i < 256; ++i) {
+    for (int i = 0; i < 256; ++i) 
+    {
         table[i] = i;
     }
 
     std::srand(std::time(0));
-    for (int i = 0; i < 256; ++i) {
+    for (int i = 0; i < 256; ++i) 
+    {
         int j = std::rand() % 256;
         std::swap(table[i], table[j]);
     }
@@ -20,7 +22,8 @@ int* HashTable::ÑreatePearsonTable()
 int HashTable::Hash(const std::string& key) 
 {
     int h = 0;
-    for (char c : key) {
+    for (char c : key) 
+    {
         h = _pearsonTable[(h + c) % 256];
     }
 
@@ -38,7 +41,8 @@ HashTable::~HashTable()
     for (int i = 0; i < _capacity; ++i) 
     {
         HashTableItem* current = _table[i];
-        while (current) {
+        while (current)
+        {
             HashTableItem* toDelete = current;
             current = current->next;
             delete toDelete;
@@ -65,7 +69,8 @@ void HashTable::Add(const std::string& key, const std::string& value)
     }
 
     HashTableItem* newItem = new HashTableItem(key, value, nullptr);
-    if (_table[index] == nullptr) {
+    if (_table[index] == nullptr) 
+{
         _table[index] = newItem;
     }
     else 

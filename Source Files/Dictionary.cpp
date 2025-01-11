@@ -16,7 +16,25 @@ std::string Dictionary::Search(const std::string& key)
     return hashTable.Search(key);
 }
 
-void Dictionary::Display() const 
+void Dictionary::Display() const
 {
     hashTable.Display();
+
+    std::cout << "{";
+    bool first = true;
+    for (int i = 0; i < hashTable.GetCapacity(); ++i)
+    {
+        HashTableItem* current = hashTable.GetTable()[i];
+        while (current)
+        {
+            if (!first)
+            {
+                std::cout << ",";
+            }
+            std::cout << current->key << ":" << current->value;
+            first = false;
+            current = current->next;
+        }
+    }
+    std::cout << "}\n";
 }
