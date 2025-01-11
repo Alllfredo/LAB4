@@ -1,20 +1,21 @@
 #include <string>
-//! \brief ��������� ��� �������� ��������� � ���-�������
+
+//! \brief Структура для хранения элементов в хеш-таблице
 struct HashTableItem
 {
-    //! \brief ���� ��������
+    //! \brief Ключ элемента
     std::string key;
 
-    //! \brief �������� ��������
+    //! \brief Значение элемента
     std::string value;
 
-    //! \brief ��������� �� ��������� �������
+    //! \brief Указатель на следующий элемент
     HashTableItem* next;
 
-    //! \brief ����������� �������� ���-�������
-    //! \param k ����
-    //! \param v ��������
-    //! \param n ��������� �� ��������� �������
+    //! \brief Конструктор элемента хеш-таблицы
+    //! \param k Ключ
+    //! \param v Значение
+    //! \param n Указатель на следующий элемент
     HashTableItem(const std::string& k, const std::string& v, HashTableItem* n = nullptr)
         : key(k), value(v), next(n) {}
 };

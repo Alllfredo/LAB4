@@ -7,19 +7,19 @@
 
 using namespace std;
 
-//! \brief ������� ��� ����������� � ���������� ���� �������.
+//! \brief Функция для отображения главного меню.
 void MenuController();
 
-//! \brief ���� ������� � ���������.
-//! \return �������� ������.
+//! \brief Функция для корректного ввода символа.
+//! \return Введённый символ.
 char ValidInputChar();
 
-//! \brief ���� ������ � ���������.
-//! \return �������� ������.
+//! \brief Функция для корректного ввода строки.
+//! \return Введённая строка.
 string ValidInputString();
 
-//! \brief ������� ��� ����������� ����������� �������.
+//! \brief Функция для отображения содержимого словаря.
 void ShowDictionary(const Dictionary* dictionary);
 
-//! \brief ������� ��� ����������� ��������� ���-�������.
+//! \brief Функция для отображения содержимого хеш-таблицы.
 void ShowHashTable(const Dictionary* dictionary);

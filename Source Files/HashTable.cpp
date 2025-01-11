@@ -1,19 +1,19 @@
 #include "../Header Files/HashTable.h"
 #include <iostream>
 
-int* HashTable::�reatePearsonTable() 
+int* HashTable::CreatePearsonTable() 
 {
     // TODO: Вынести число в константу
-    int* table = new int[256];
-    for (int i = 0; i < 256; ++i) 
+    int* table = new int[PEARSON_TABLE_SIZE];
+    for (int i = 0; i < PEARSON_TABLE_SIZE; ++i)
     {
         table[i] = i;
     }
 
     std::srand(std::time(0));
-    for (int i = 0; i < 256; ++i) 
+    for (int i = 0; i < PEARSON_TABLE_SIZE; ++i)
     {
-        int j = std::rand() % 256;
+        int j = std::rand() % PEARSON_TABLE_SIZE;
         std::swap(table[i], table[j]);
     }
 
@@ -25,7 +25,7 @@ int HashTable::Hash(const std::string& key)
     int h = 0;
     for (char c : key) 
     {
-        h = _pearsonTable[(h + c) % 256];
+        h = _pearsonTable[(h + c) % PEARSON_TABLE_SIZE];
     }
 
     return h % _capacity;
@@ -35,7 +35,7 @@ HashTable::HashTable(int cap) : _capacity(cap), _size(0)
 {
     _table = new HashTableItem * [_capacity]();
     // TODO: У вызываемой функции первая буква русская
-    _pearsonTable = �reatePearsonTable();
+    _pearsonTable = CreatePearsonTable();
 }
 
 HashTable::~HashTable() 

@@ -6,69 +6,72 @@
 #include <cstdlib>
 #include <iostream>
 
-//! \brief ����� ���-������� ��� �������� ������
+//! \brief Класс хеш-таблицы для хранения данных
 class HashTable 
 {
 private:
-    //! \brief ��������� ��� ��������� ������� ���-������� (�� ��������� 8).
+    //! \brief Константа для начальной ёмкости хеш-таблицы (по умолчанию 8).
     static const int DEFAULT_CAPACITY = 8;
 
-    //! \brief ������� ������� ���-�������.
+	//! \brief Константа для размера таблицы Пирсона
+    static const int PEARSON_TABLE_SIZE = 256;
+
+    //! \brief Текущая ёмкость хеш-таблицы.
     int _capacity;
 
-    //! \brief ������� ������ ���-�������.
+    //! \brief Текущий размер хеш-таблицы.
     int _size;
 
-    //! \brief ������ ���������� �� �������� ���-�������.
+    //! \brief Массив указателей на элементы хеш-таблицы.
     HashTableItem** _table;
 
-    //! \brief ������� ������� ��� �����������.
+    //! \brief Таблица Персона для хеширования.
     int* _pearsonTable;
 
 
-    //! \brief �������� ������� ������� ��� �����������
-    //! \return ��������� �� �������
-    int* �reatePearsonTable();
+    //! \brief Создание таблицы Персона для хеширования
+    //! \return Указатель на таблицу
+    int* CreatePearsonTable();
 
-    //! \brief ������� ����������� ��� ���������� �������
-    //! \param key ����
-    //! \return ������ � ���-�������
+    //! \brief Функция хеширования для вычисления индекса
+    //! \param key Ключ
+    //! \return Индекс в хеш-таблице
     int Hash(const std::string& key);
 
-    //! \brief ��������� ������� ���-�������
-    //! \param newCapacity ����� �������
+    //! \brief Увеличить ёмкость хеш-таблицы
+    //! \param newCapacity Новая ёмкость
     void Resize(int newCapacity);
 
 public:
-    //! \brief ����������� ���-�������
-    //! \param cap ������� ���-�������
+    //! \brief Конструктор хеш-таблицы
+    //! \param cap Ёмкость хеш-таблицы
     HashTable(int cap = DEFAULT_CAPACITY);
 
-    //! \brief ���������� ���-�������
+    //! \brief Деструктор хеш-таблицы
     ~HashTable();
 
-    //! \brief �������� ������� ���-�������
-    //! \return ������� ���-�������
+    //! \brief Получить ёмкость хеш-таблицы
+    //! \return Ёмкость хеш-таблицы
     int GetCapacity() const { return _capacity; }
 
-    //! \brief �������� ���-������
-    //! \return ������ ����������
+    //! \brief Получить хеш-таблицу
+    //! \return Массив указателей
     HashTableItem** GetTable() const { return _table; }
 
-    //! \brief �������� ���� ����-�������� � ���-�������
-    //! \param key ����
-    //! \param value ��������
+    //! \brief Добавить пару ключ-значение в хеш-таблицу
+    //! \param key Ключ
+    //! \param value Значение
     void Add(const std::string& key, const std::string& value);
 
-    //! \brief ������� ������� �� �����
-    //! \param key ����
+    //! \brief Удалить элемент по ключу
+    //! \param key Ключ
     void Remove(const std::string& key);
 
-    //! \brief ����� �������� �� �����
-    //! \param key ����
-    //! \return ��������, ���� �������, ����� ������ ������
+    //! \brief Найти значение по ключу
+    //! \param key Ключ
+    //! \return Значение, если найдено, иначе пустая строка
     std::string Search(const std::string& key);
 
-    //! \brief ���������� ���������� ���-�������
+    //! \brief Отобразить содержимое хеш-таблицы
     void Display() const;
 };
