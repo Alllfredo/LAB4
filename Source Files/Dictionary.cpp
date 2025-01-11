@@ -16,6 +16,7 @@ std::string Dictionary::Search(const std::string& key)
     return hashTable.Search(key);
 }
 
+// TODO: Не должно быть ввода/вывода в логических классах
 void Dictionary::Display() const
 {
     hashTable.Display();

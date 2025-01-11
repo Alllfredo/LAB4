@@ -1,4 +1,4 @@
-﻿#include "../LAB4/Header Files/Menu.h"
+﻿#include "Header Files/Menu.h"
 
 int main()
 {

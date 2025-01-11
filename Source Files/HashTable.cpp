@@ -1,8 +1,9 @@
 #include "../Header Files/HashTable.h"
 #include <iostream>
 
-int* HashTable::�reatePearsonTable() 
+int* HashTable::�reatePearsonTable() 
 {
+    // TODO: Вынести число в константу
     int* table = new int[256];
     for (int i = 0; i < 256; ++i) 
     {
@@ -33,7 +34,8 @@ int HashTable::Hash(const std::string& key)
 HashTable::HashTable(int cap) : _capacity(cap), _size(0) 
 {
     _table = new HashTableItem * [_capacity]();
-    _pearsonTable = �reatePearsonTable();
+    // TODO: У вызываемой функции первая буква русская
+    _pearsonTable = �reatePearsonTable();
 }
 
 HashTable::~HashTable() 
