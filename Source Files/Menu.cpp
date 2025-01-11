@@ -1,6 +1,6 @@
 #include "../Header Files/Menu.h"
 #include <iostream>
-// TODO: Полетела кодировка (посмотреть все файлы)
+
 char ValidInputChar()
 {
     char value;

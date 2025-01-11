@@ -10,6 +10,7 @@
 class HashTable 
 {
 private:
+    // TODO: RSDN
     //! \brief Константа для начальной ёмкости хеш-таблицы (по умолчанию 8).
     static const int DEFAULT_CAPACITY = 8;
 

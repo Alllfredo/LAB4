@@ -3,7 +3,6 @@
 
 int* HashTable::CreatePearsonTable() 
 {
-    // TODO: Вынести число в константу
     int* table = new int[PEARSON_TABLE_SIZE];
     for (int i = 0; i < PEARSON_TABLE_SIZE; ++i)
     {
@@ -34,7 +33,6 @@ int HashTable::Hash(const std::string& key)
 HashTable::HashTable(int cap) : _capacity(cap), _size(0) 
 {
     _table = new HashTableItem * [_capacity]();
-    // TODO: У вызываемой функции первая буква русская
     _pearsonTable = CreatePearsonTable();
 }
 
